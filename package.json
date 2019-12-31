@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/tdecker7/flyreel#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mocha": "^6.2.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0"
   }
 }
