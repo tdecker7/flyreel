@@ -10,5 +10,8 @@ router
         res.send(key);
     })
 
-    .post('/:key', handlePost);
+    .post('/:key', (req, res, next) => {
+        req.storage = storage;
+        next();
+    }, handlePost)
 module.exports = router;
