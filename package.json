@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/tdecker7/flyreel/issues"
   },
-  "homepage": "https://github.com/tdecker7/flyreel#readme"
+  "homepage": "https://github.com/tdecker7/flyreel#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
