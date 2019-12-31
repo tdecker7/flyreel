@@ -1,5 +1,5 @@
 const Time = {
-    oneHour = (1000*60*60), // in ms
+    oneHour:  1000*60*60, // in ms
 
     isWithinLastHour(date) {
         const now = new Date();
