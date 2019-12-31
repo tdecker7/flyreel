@@ -1,18 +1,15 @@
 const Post = {
     handlePost(req, res) {
         const { key } = req.params;
-        console.log('key', key);
-        console.log('req.body', req.body);
-        console.log('stroage', req.storage);
+        const logEntry = req.body;
+        logEntry.timestamp = new Date(); 
         if(req.storage.hasOwnProperty(key)) {
-            console.log('req.storage[key]', req.storage[key])
-            req.storage[key].push(req.body);
-            console.log('req.storage[key]', req.storage[key])
+            req.storage[key].push(logEntry);
         } else {
-            req.storage[key] = [req.body];
+            req.storage[key] = [logEntry];
         }
-        
-        res.send(req.body);
+        console.log(`Added entry: ${log} to in-memory storage`);
+        res.status(200).send({});
     }
 };
 
