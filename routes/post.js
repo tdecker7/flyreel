@@ -1,6 +1,11 @@
 const Time = require('../helpers/time');
 
 const Post = {
+    /**
+     * Handles POST requests. In memory strorage object is expected to be req.storage property.
+     * @param {object} req Express request object - in memory storage is added as property
+     * @param {object} res Express response object
+     */
     handlePost(req, res) {
         const { key } = req.params;
         const logEntry = req.body;

@@ -1,10 +1,19 @@
 const Time = require('../helpers/time');
 
+/**
+ * Filters out metrics that are considered "old", or not within an hour old
+ * @param {array} metricsArray Array of objects containing metrics and timestamps
+ */
 function removeOldEntries(metricsArray) {
     return metricsArray.filter(metric => Time.isWithinLastHour(metric.timestamp));
 }
 
 const Get = {
+    /**
+     * Handles GET requests. In memory strorage object is expected to be req.storage property.
+     * @param {object} req Express request object
+     * @param {object} res Express response object
+     */
     handleGet(req, res) {
         const { key } = req.params;
         if (!req.storage.hasOwnProperty(key)) {
