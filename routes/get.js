@@ -1,5 +1,9 @@
 const Time = require('../helpers/time');
 
+function removeOldEntries(metricsArray) {
+    return metricsArray.filter(metric => Time.isWithinLastHour(metric.timestamp));
+}
+
 const Get = {
     handleGet(req, res) {
         const { key } = req.params;
@@ -9,12 +13,12 @@ const Get = {
             });
         }
 
-        const { metrics } = req.storage[key];
+        // remove old entries before attempting any summations. 
+        req.storage[key] = removeOldEntries(req.storage[key]);
+        const metrics = req.storage[key];
         let sum = 0;
-        metrics.forEach(metric => {
-            console.log('metric', metric);
-        });
-        res.status(200).send(sum);
+        sum = metrics.reduce((sum, currentMetric) => sum += currentMetric.value, 0);
+        res.status(200).send({ value: sum });
     }
 
 }

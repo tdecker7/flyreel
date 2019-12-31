@@ -3,7 +3,7 @@ const Time = {
 
     isWithinLastHour(date) {
         const now = new Date();
-        if ((now - date) < oneHour) {
+        if ((now - date) < this.oneHour) {
             return true;
         }
         return false;
