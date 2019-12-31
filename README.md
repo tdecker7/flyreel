@@ -4,15 +4,21 @@ This project solves a simple metric logging and reporting problem for a given ti
 ## Installation
 
 Clone the repo and move into project directory
+
 `git clone git@github.com:tdecker7/flyreel.git && cd flyreel`
 
 Install dependencies
+
 `npm i`
 
 Run simple tests
+
 `npm test`
 
 Start the server
+
+`npm start`
+
 _default start is `http://localhost:3000`. Another port can be defined by local env_
 `npm start`
 
