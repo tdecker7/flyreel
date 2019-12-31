@@ -7,8 +7,8 @@ const Post = {
             req.storage[key].push(logEntry);
         } else {
             req.storage[key] = [logEntry];
-        }
-        console.log(`Added entry: ${log} to in-memory storage`);
+        } 
+        console.log(`Added entry: ${JSON.stringify(logEntry)} to in-memory storage`);
         res.status(200).send({});
     }
 };
